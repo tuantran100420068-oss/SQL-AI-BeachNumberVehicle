@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm Anh Em Cây Khế · Nhận Diện Biển Số Xe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="team">
+                <svg viewBox="0 0 24 24" fill="#f5c518" stroke="#fff" stroke-width="1" aria-hidden="true">
+                    <path d="M12 2l2.6 6.2 6.6.6-5 4.4 1.5 6.5L12 16.2 6.3 19.7l1.5-6.5-5-4.4 6.6-.6z"/>
+                </svg>
+                Nhóm Anh Em Cây Khế
+            </div>
+            <h1><i class="fa-solid fa-car-side"></i> Nhận Diện Biển Số Xe Việt Nam</h1>
+            <p>YOLOv8 + EasyOCR · Phát hiện và đọc nhiều biển số trong một ảnh</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <div id="dropZone" class="drop-zone">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Kéo thả ảnh vào đây hoặc</p>
+                <button type="button" id="chooseBtn" class="btn btn-secondary">Chọn Từ Máy Tính</button>
+                <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.bmp,.gif" hidden>
+                <small>PNG, JPG, JPEG, BMP, GIF · tối đa 16MB</small>
+            </div>
+
+            <div id="previewBox" class="preview hidden">
+                <img id="previewImg" alt="Ảnh xem trước">
+                <div class="actions">
+                    <button type="button" id="detectBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-magnifying-glass"></i> Bắt Đầu Nhận Diện
+                    </button>
+                    <button type="button" id="resetBtn" class="btn btn-secondary">Chọn ảnh khác</button>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Đang xử lý, vui lòng đợi...</p>
+            </div>
+
+            <div id="errorBox" class="alert alert-error hidden"></div>
+        </section>
+
+        <section id="resultSection" class="card hidden">
+            <h2><i class="fa-solid fa-circle-check"></i> Kết Quả</h2>
+            <p id="resultMessage" class="result-message"></p>
+            <img id="resultImg" class="result-img" alt="Ảnh kết quả">
+            <div id="plateList" class="plate-list"></div>
+        </section>
+
+        <section class="card">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> Lịch Sử Gần Đây</h2>
+            <div id="history" class="history"></div>
+        </section>
+
+        <section class="card">
+            <h2><i class="fa-solid fa-users"></i> Thành Viên Nhóm Anh Em Cây Khế</h2>
+            <div class="members">
+                <div class="member">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <div>
+                        <strong>Trần Đặng Tuân</strong>
+                        <span>MSSV: 24800601028</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Nhóm Anh Em Cây Khế · Đồ án nhận diện biển số xe · YOLOv8 + EasyOCR</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
